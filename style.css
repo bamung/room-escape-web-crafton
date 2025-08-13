@@ -1,0 +1,308 @@
+/* 기본 설정 */
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+/* 네비게이션 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,0.8);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar .logo {
+  font-size: 2.0rem;
+  font-weight: bold;
+  color: #ff4c4c;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+  transition: color 0.3s;
+}
+.navbar ul li a:hover {
+  color: #ff4c4c;
+}
+
+/* 히어로 섹션 */
+.hero {
+  height: 90vh;
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+    url("C:/Users/user/Desktop/1주차 발표과제/escape8.png") center/cover no-repeat; /* 로컬 이미지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.button {
+  background: #ff4c4c;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.rooms {
+  padding: 60px 20px;
+  text-align: center;
+}
+.rooms h2 {
+  margin-bottom: 30px;
+}
+.room-list {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.room-card {
+  position: relative;  
+  overflow: hidden;
+  background: #222;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.room-card img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.3s;
+  display: block;
+}
+.room-card:hover img {
+  filter: brightness(30%);
+}
+.room-card:hover {
+  transform: scale(1.05);
+}
+
+/* 오시는 길 섹션 스타일 */
+.maps {
+  width: 100%;
+  height: 500px;
+  background-color: #222;
+  padding: 60px 20px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 30px;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 0 auto;           /* 부모 내 수평 중앙 정렬 */
+}
+
+.map-info {
+  max-width: 300px;      /* 글귀 최대 너비 제한 */
+  text-align: center;    /* 글귀 중앙 정렬 */
+}
+
+.map-info h2 {
+  font-size: 2.0rem;
+  margin-bottom: 15px;
+}
+
+.map-info p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.map-image {
+  max-width: 600px;      /* 이미지 최대 너비 제한 */
+  text-align: center;    /* 이미지 중앙 정렬 */
+}
+
+.map-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;        /* 이미지 수평 중앙 정렬 */
+}
+@media screen and (max-width: 768px) {
+  .maps {
+    flex-direction: column;      /* 글과 이미지를 세로 배치 */
+    height: 800px;               /* 원하는 최대 높이 지정 */
+    overflow-y: auto;            /* 세로 스크롤 허용 */
+    padding: 20px;               /* 모바일용 패딩 */
+  }
+
+  .map-info, .map-image {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+.reservation {
+  background: #111;
+  padding: 60px 20px;
+  text-align: center;
+
+  display: block;
+  margin-top: 40px;
+  clear: both;
+  width: 100%;
+}
+.reservation form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+.reservation form input, 
+.reservation form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+.reservation form input {
+  background: #333;
+  color: #fff;
+}
+.reservation form button {
+  background: #ff4c4c;
+  color: #fff;
+  cursor: pointer;
+}
+.reservation form button:hover {
+  background: #ff1a1a;
+}
+
+.footer {
+  background: #222;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; 
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.room-card:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 별점 */
+.difficulty {
+  font-size: 1.2rem;
+}
+.star {
+  color: #aaa;
+  margin: 0 2px;
+}
+.star.filled {
+  color: #ffcc00;
+}
+
+/* 버튼 그룹 */
+.option-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* 버튼 사이 간격 */
+  justify-content: center; /* 전체를 가운데 정렬 */
+}
+
+/* 공통 버튼 스타일 */
+.btn-option {
+  flex: 0 0 140px; /* 버튼 가로 길이를 고정 (필요시 값 조절) */
+  height: 45px; /* 세로 높이 통일 */
+  
+  background: #fff;
+  border: 2px solid #555;
+  border-radius: 8px;
+  color: #000;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  text-align: center;
+  line-height: 29px; /* 세로 글자 정렬 (높이 - border*2) */
+
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, border-color 0.2s;
+}
+
+/* 호버 효과 */
+.btn-option:hover {
+  background: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+.btn-option.selected {
+  background: #691515;   /* 빨간 배경 */
+  color: #fff;           /* 흰색 글씨 */
+  border-color: #ff4c4c; /* 테두리도 빨간색 */
+  transform: scale(1.05); /* 살짝 확대 */
+}
+
+/* 제출 버튼 */
+.btn-submit {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  background: #ff4c4c;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-submit:hover {
+  background: #e63b3b;
+}
