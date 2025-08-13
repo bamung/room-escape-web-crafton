@@ -1,4 +1,3 @@
-/* 기본 설정 */
 body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
@@ -6,7 +5,6 @@ body {
   color: #fff;
 }
 
-/* 네비게이션 */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -20,7 +18,7 @@ body {
 .navbar .logo {
   font-size: 2.0rem;
   font-weight: bold;
-  color: #ff4c4c;
+  color: #8a2323;
 }
 .navbar ul {
   display: flex;
@@ -35,15 +33,14 @@ body {
   transition: color 0.3s;
 }
 .navbar ul li a:hover {
-  color: #ff4c4c;
+  color: #8a2323;
 }
 
-/* 히어로 섹션 */
 .hero {
   height: 90vh;
   background: 
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-    url("C:/Users/user/Desktop/1주차 발표과제/escape8.png") center/cover no-repeat; /* 로컬 이미지 */
+    url("images/escape8.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +55,7 @@ body {
   margin-bottom: 20px;
 }
 .button {
-  background: #ff4c4c;
+  background: #8a2323;
   padding: 10px 20px;
   color: #fff;
   border-radius: 4px;
@@ -104,7 +101,6 @@ body {
   transform: scale(1.05);
 }
 
-/* 오시는 길 섹션 스타일 */
 .maps {
   width: 100%;
   height: 500px;
@@ -118,12 +114,12 @@ body {
   gap: 30px;
   box-sizing: border-box;
   color: #fff;
-  margin: 0 auto;           /* 부모 내 수평 중앙 정렬 */
+  margin: 0 auto;
 }
 
 .map-info {
-  max-width: 300px;      /* 글귀 최대 너비 제한 */
-  text-align: center;    /* 글귀 중앙 정렬 */
+  max-width: 300px;
+  text-align: center;
 }
 
 .map-info h2 {
@@ -138,8 +134,8 @@ body {
 }
 
 .map-image {
-  max-width: 600px;      /* 이미지 최대 너비 제한 */
-  text-align: center;    /* 이미지 중앙 정렬 */
+  max-width: 600px;
+  text-align: center;
 }
 
 .map-image img {
@@ -147,14 +143,14 @@ body {
   height: auto;
   border-radius: 8px;
   display: block;
-  margin: 0 auto;        /* 이미지 수평 중앙 정렬 */
+  margin: 0 auto;
 }
 @media screen and (max-width: 768px) {
   .maps {
-    flex-direction: column;      /* 글과 이미지를 세로 배치 */
-    height: 800px;               /* 원하는 최대 높이 지정 */
-    overflow-y: auto;            /* 세로 스크롤 허용 */
-    padding: 20px;               /* 모바일용 패딩 */
+    flex-direction: column;
+    height: 800px;
+    overflow-y: auto;
+    padding: 20px;
   }
 
   .map-info, .map-image {
@@ -191,12 +187,12 @@ body {
   color: #fff;
 }
 .reservation form button {
-  background: #ff4c4c;
+  background: #8a2323;
   color: #fff;
   cursor: pointer;
 }
 .reservation form button:hover {
-  background: #ff1a1a;
+  background: #891313;
 }
 
 .footer {
@@ -240,7 +236,7 @@ body {
   visibility: visible;
 }
 
-/* 별점 */
+/* 난이도 */
 .difficulty {
   font-size: 1.2rem;
 }
@@ -252,19 +248,17 @@ body {
   color: #ffcc00;
 }
 
-/* 버튼 그룹 */
 .option-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* 버튼 사이 간격 */
-  justify-content: center; /* 전체를 가운데 정렬 */
+  gap: 15px;
+  justify-content: center;
 }
 
 /* 공통 버튼 스타일 */
 .btn-option {
-  flex: 0 0 140px; /* 버튼 가로 길이를 고정 (필요시 값 조절) */
-  height: 45px; /* 세로 높이 통일 */
-  
+  flex: 0 0 140px;
+  height: 45px;
   background: #fff;
   border: 2px solid #555;
   border-radius: 8px;
@@ -273,24 +267,25 @@ body {
   font-weight: 500;
 
   text-align: center;
-  line-height: 29px; /* 세로 글자 정렬 (높이 - border*2) */
+  line-height: 29px;
 
   cursor: pointer;
   transition: background 0.2s, transform 0.1s, border-color 0.2s;
 }
 
-/* 호버 효과 */
 .btn-option:hover {
   background: #f1f1f1;
   transform: translateY(-2px);
 }
 
 .btn-option.selected {
-  background: #691515;   /* 빨간 배경 */
-  color: #fff;           /* 흰색 글씨 */
-  border-color: #ff4c4c; /* 테두리도 빨간색 */
-  transform: scale(1.05); /* 살짝 확대 */
+  background: #691515;
+  color: #fff;
+  border-color: #ff4c4c;
+  transform: scale(1.05);
 }
+
+html { scroll-behavior: smooth; }
 
 /* 제출 버튼 */
 .btn-submit {
@@ -302,7 +297,4 @@ body {
   color: #fff;
   border-radius: 6px;
   cursor: pointer;
-}
-.btn-submit:hover {
-  background: #e63b3b;
 }

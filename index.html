@@ -227,7 +227,7 @@
         <p>주소: 경기도 용인시 처인구 영문로 55 크래프톤 정글 캠퍼스3</p>
     </div>
     <div class="map-image">
-        <img src="map.png" alt="Escape-8 지도">
+      <img src="images/map.png" alt="Escape-8 지도">
     </div>
 </section>
 
@@ -281,21 +281,25 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.textContent = val;
 
       btn.addEventListener("click", () => {
+      if (btn.classList.contains("selected")) {
+        btn.classList.remove("selected");
+        hiddenField.value = "";
+      } else {
         container.querySelectorAll(".btn-option").forEach(b => b.classList.remove("selected"));
         btn.classList.add("selected");
         hiddenField.value = val;
-      });
+      }
+    });
+
 
       container.appendChild(btn);
     });
   };
 
-  // 각 그룹별 생성
-  createButtons(themeWrap, THEMES, hiddenTheme);
-  createButtons(timeWrap, TIMES, hiddenTime);
+    createButtons(themeWrap, THEMES, hiddenTheme);
+    createButtons(timeWrap, TIMES, hiddenTime);
 
-  // 제출 이벤트 (alert 팝업)
-  document.getElementById("reservationForm").addEventListener("submit", e => {
+    document.getElementById("reservationForm").addEventListener("submit", e => {
 
 
     const theme = hiddenTheme.value;
