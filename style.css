@@ -20,7 +20,7 @@ body {
   font-weight: bold;
   color: #8a2323;
   text-decoration: underline;
-  text-decoration: black;
+  text-decoration-color: black;
 }
 .navbar ul {
   display: flex;
