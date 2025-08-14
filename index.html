@@ -163,10 +163,17 @@
         btn.className = "btn-option";
         btn.textContent = val;
         btn.addEventListener("click", () => {
+        if (btn.classList.contains("selected")) {
+    // 이미 선택된 버튼을 다시 눌렀으면 해제
+          btn.classList.remove("selected");
+          hiddenField.value = "";
+        } else {
+    // 다른 버튼을 선택했으면 기존 선택 해제하고 새로 선택
           container.querySelectorAll(".btn-option").forEach(b => b.classList.remove("selected"));
-          btn.classList.toggle("selected");
-          hiddenField.value = btn.classList.contains("selected") ? val : "";
-        });
+          btn.classList.add("selected");
+          hiddenField.value = val;
+  }
+});
         container.appendChild(btn);
       });
     }
@@ -185,7 +192,6 @@
       createButtons(timeWrap, TIMES, hiddenTime);
 
       document.getElementById("reservationForm").addEventListener("submit", e => {
-        e.preventDefault();
         if (!hiddenTheme.value || !hiddenTime.value || !document.querySelector('input[name="date"]').value) {
           alert("날짜, 테마, 시간을 모두 선택해주세요.");
           return;
