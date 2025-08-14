@@ -5,6 +5,37 @@ body {
   color: #fff;
 }
 
+@font-face {
+  font-family: 'BMEuljiro10yearslater';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/BMEuljiro10yearslater.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 아래에서 위로 (기존) */
+.fade-up {
+  transform: translateY(20px);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 위에서 아래로 */
+.fade-down {
+  transform: translateY(-20px);
+}
+.fade-down.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 네비게이션 */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -15,28 +46,33 @@ body {
   top: 0;
   z-index: 10;
 }
+
 .navbar .logo {
   font-size: 2.0rem;
-  font-weight: bold;
+  font-family: 'BMEuljiro10yearslater', sans-serif;
   color: #8a2323;
 }
+
 .navbar ul {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 .navbar ul li a {
   color: #fff;
   text-decoration: none;
-  padding: 8px 15px;
+  padding: 8px 10px;
   transition: color 0.3s;
 }
+
 .navbar ul li a:hover {
   color: #8a2323;
 }
 
-.hero {
+/* 홈 */
+.home {
   height: 90vh;
   background: 
     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
@@ -46,14 +82,17 @@ body {
   justify-content: center;
   text-align: center;
 }
-.hero-content h1 {
+
+.home-content h1 {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
-.hero-content p {
+
+.home-content p {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
+
 .button {
   background: #8a2323;
   padding: 10px 20px;
@@ -63,13 +102,16 @@ body {
   transition: background 0.3s;
 }
 
+.button:hover {
+  background: #aa2f2f;
+}
+
+/* 방 카드 섹션 */
 .rooms {
   padding: 60px 20px;
   text-align: center;
 }
-.rooms h2 {
-  margin-bottom: 30px;
-}
+
 .room-list {
   display: flex;
   gap: 40px;
@@ -82,125 +124,25 @@ body {
   overflow: hidden;
   background: #222;
   border-radius: 8px;
-  overflow: hidden;
   width: 300px;
   transition: transform 0.3s;
   cursor: pointer;
 }
+
 .room-card img {
   width: 100%;
   height: 450px;
   object-fit: cover;
-  transition: transform 0.3s;
   display: block;
+  transition: transform 0.3s;
 }
+
 .room-card:hover img {
   filter: brightness(30%);
 }
+
 .room-card:hover {
   transform: scale(1.05);
-}
-
-.maps {
-  width: 100%;
-  height: 500px;
-  background-color: #222;
-  padding: 60px 20px;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 30px;
-  box-sizing: border-box;
-  color: #fff;
-  margin: 0 auto;
-}
-
-.map-info {
-  max-width: 300px;
-  text-align: center;
-}
-
-.map-info h2 {
-  font-size: 2.0rem;
-  margin-bottom: 15px;
-}
-
-.map-info p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 8px 0;
-}
-
-.map-image {
-  max-width: 600px;
-  text-align: center;
-}
-
-.map-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-}
-@media screen and (max-width: 768px) {
-  .maps {
-    flex-direction: column;
-    height: 800px;
-    overflow-y: auto;
-    padding: 20px;
-  }
-
-  .map-info, .map-image {
-    max-width: 100%;
-    text-align: center;
-  }
-}
-
-.reservation {
-  background: #111;
-  padding: 60px 20px;
-  text-align: center;
-
-  display: block;
-  margin-top: 40px;
-  clear: both;
-  width: 100%;
-}
-.reservation form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 700px;
-  margin: auto;
-}
-.reservation form input, 
-.reservation form button {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-}
-.reservation form input {
-  background: #333;
-  color: #fff;
-}
-.reservation form button {
-  background: #8a2323;
-  color: #fff;
-  cursor: pointer;
-}
-.reservation form button:hover {
-  background: #891313;
-}
-
-.footer {
-  background: #222;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.85rem;
-  color: #aaa;
 }
 
 .overlay {
@@ -224,6 +166,11 @@ body {
   transition: opacity 0.3s ease;
 }
 
+.room-card:hover .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
 .details {
   list-style: none;
   padding: 0;
@@ -231,23 +178,95 @@ body {
   text-align: center;
 }
 
-.room-card:hover .overlay {
-  opacity: 1;
-  visibility: visible;
+/* 오시는 길 */
+.maps {
+  width: 100%;
+  height: 500px;
+  background-color: #222;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  box-sizing: border-box;
+  color: #fff;
+  margin: 0 auto;
 }
 
-/* 난이도 */
-.difficulty {
-  font-size: 1.2rem;
-}
-.star {
-  color: #aaa;
-  margin: 0 2px;
-}
-.star.filled {
-  color: #ffcc00;
+.map-info {
+  max-width: 300px;
+  text-align: center;
 }
 
+.map-info h2 {
+  font-size: 2.0rem;
+  margin-bottom: 15px;
+}
+
+.map-info p {
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.map-image {
+  max-width: 600px;
+  text-align: center;
+}
+
+.map-image img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .maps {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  .map-info, .map-image {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* 예약 */
+.reservation {
+  background: #111;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.reservation form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.reservation form input,
+.reservation form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.reservation form input {
+  background: #333;
+  color: #fff;
+}
+
+.reservation form button {
+  background: #8a2323;
+  color: #fff;
+  cursor: pointer;
+}
+
+.reservation form button:hover {
+  background: #891313;
+}
+/* 버튼 공통 */
 .option-group {
   display: flex;
   flex-wrap: wrap;
@@ -255,7 +274,6 @@ body {
   justify-content: center;
 }
 
-/* 공통 버튼 스타일 */
 .btn-option {
   flex: 0 0 140px;
   height: 45px;
@@ -265,10 +283,7 @@ body {
   color: #000;
   font-size: 0.95rem;
   font-weight: 500;
-
   text-align: center;
-  line-height: 29px;
-
   cursor: pointer;
   transition: background 0.2s, transform 0.1s, border-color 0.2s;
 }
@@ -284,8 +299,6 @@ body {
   border-color: #ff4c4c;
   transform: scale(1.05);
 }
-
-html { scroll-behavior: smooth; }
 
 /* 제출 버튼 */
 .btn-submit {
